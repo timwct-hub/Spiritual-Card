@@ -28,11 +28,12 @@ ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用
     headers: {
       "Authorization": `Bearer ${apiKey}`,
       "Content-Type": "application/json",
-      "HTTP-Referer": window.location.href,
+      "HTTP-Referer": typeof window !== "undefined"
+        ? window.location.href
+        : "https://timwct-hub.github.io/Spiritual-Card/",
       "X-Title": "Spiritual Message Cards",
     },
     body: JSON.stringify({
-      // 使用 OpenRouter 官方支援的免費 Qwen 模型
       model: "qwen/qwen3.6-plus:free",
       messages: [
         { role: "user", content: prompt }
@@ -53,5 +54,9 @@ ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用
     throw new Error(`API 回傳格式異常: ${JSON.stringify(data)}`);
   }
 
-  return data.choices[0].message.content;
+  // 過濾掉 Qwen3 的 <think>...</think> 思考區塊
+  const rawContent = data.choices[0].message.content;
+  const content = rawContent.replace(/<think>[\s\S]*?<\/think>/g, "").trim();
+
+  return content;
 }
