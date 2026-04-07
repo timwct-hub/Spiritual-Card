@@ -35,9 +35,9 @@ const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
   },
   body: JSON.stringify({
     models: [
-      "qwen/qwen2.5-72b-instruct:free",
-      "meta-llama/llama-4-scout:free",
-      "google/gemma-3-27b-it:free",
+      "minimax/minimax-m2.5:free",
+      "openai/gpt-oss-120b:free",
+      "nvidia/nemotron-3-super-120b-a12b:free",
     ],
     messages: [
       { role: "user", content: prompt }
