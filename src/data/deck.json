@@ -1,0 +1,23 @@
+{
+  "deckTitle": "靈魂訊息",
+  "deckSubtitle": "閉上眼睛，深呼吸三次。把注意力帶回自己，接收此刻浮現的訊息。",
+  "deckDescription": "這不是命運預測，也不是醫療診斷，而是一場與內在、高我與宇宙流動對話的機會。",
+  "language": "zh-Hant",
+  "coverImage": "/cards/cover.png",
+  "coverTitle": "觀心",
+  "coverSubtitle": "INNER VISION",
+  "cardCount": 16,
+  "allowRepeatDraw": true,
+  "ritualSteps": [
+    "閉上眼睛",
+    "深呼吸三次",
+    "在心中默想你最近的困惑、情緒、抗拒、痛感，或一個放不下的問題",
+    "當你準備好，點擊卡牌，接收此刻屬於你的訊息"
+  ],
+  "primaryCta": "開始抽卡",
+  "secondaryCta": "再抽一張",
+  "archiveCta": "查看全部卡牌",
+  "returnCta": "回到起點",
+  "disclaimer": "本網站內容屬靈性反思與自我覺察用途，不構成醫療、心理、法律或任何專業診斷與建議。",
+  "footerNote": "願你在此刻，與自己相遇。"
+}
