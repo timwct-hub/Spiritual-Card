@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import cardsData from '../data/cards.json';
+import { getImageUrl } from '../utils/images';
 
 export default function Archive() {
   const [selectedCard, setSelectedCard] = useState<typeof cardsData[0] | null>(null);
@@ -47,7 +48,7 @@ export default function Archive() {
             >
               <div className="relative w-full aspect-[2/3] rounded-xl overflow-hidden shadow-lg border border-white/5 mb-4 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl" style={{ boxShadow: `0 10px 30px -10px ${card.dominantColor}30` }}>
                 <img 
-                  src={`${import.meta.env.BASE_URL}${card.image.replace(/^\//, '')}`}
+                  src={getImageUrl(card.image)}
                   alt={card.title}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
@@ -97,7 +98,7 @@ export default function Archive() {
               <div className="w-full max-w-xs md:w-1/3 flex-shrink-0">
                 <div className="relative w-full aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                   <img 
-                    src={`${import.meta.env.BASE_URL}${selectedCard.image.replace(/^\//, '')}`}
+                    src={getImageUrl(selectedCard.image)}
                     alt={selectedCard.title} 
                     className="absolute inset-0 w-full h-full object-cover"
                     referrerPolicy="no-referrer"

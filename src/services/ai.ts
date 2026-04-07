@@ -32,18 +32,26 @@ ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用
       "X-Title": "Spiritual Message Cards",
     },
     body: JSON.stringify({
-      model: "qwen/qwen3.6-plus:free",
+      // 使用 OpenRouter 官方支援的免費 Qwen 模型
+      model: "qwen/qwen-2.5-72b-instruct:free",
       messages: [
         { role: "user", content: prompt }
       ]
     })
   });
 
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error?.message || "無法連接到 OpenRouter API，請稍後再試。");
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok || data.error) {
+    const errorMsg = data.error?.message || JSON.stringify(data.error) || "無法連接到 OpenRouter API";
+    console.error("OpenRouter API Error:", data);
+    throw new Error(`API 錯誤: ${errorMsg}`);
   }
 
-  const data = await response.json();
+  if (!data.choices || !data.choices[0]) {
+    console.error("OpenRouter API Invalid Response:", data);
+    throw new Error(`API 回傳格式異常: ${JSON.stringify(data)}`);
+  }
+
   return data.choices[0].message.content;
 }

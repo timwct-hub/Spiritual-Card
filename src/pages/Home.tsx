@@ -8,6 +8,8 @@ import { getSpiritualReading } from '../services/ai';
 
 type DrawState = 'idle' | 'breathing' | 'revealing';
 
+import { getImageUrl } from '../utils/images';
+
 export default function Home() {
   const [drawState, setDrawState] = useState<DrawState>('idle');
   const [drawnCard, setDrawnCard] = useState<typeof cardsData[0] | null>(null);
@@ -120,7 +122,7 @@ export default function Home() {
           {/* Card Back / Cover */}
           <div className="absolute inset-0 bg-bg-dark flex flex-col items-center justify-center">
             <img 
-              src={`${import.meta.env.BASE_URL}${deckData.coverImage.replace(/^\//, '')}`}
+              src={getImageUrl(deckData.coverImage)}
               alt="Cover" 
               className="absolute inset-0 w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -216,7 +218,7 @@ export default function Home() {
             style={{ boxShadow: `0 20px 50px -10px ${drawnCard.dominantColor}40` }}
           >
             <img 
-              src={`${import.meta.env.BASE_URL}${drawnCard.image.replace(/^\//, '')}`}
+              src={getImageUrl(drawnCard.image)}
               alt={drawnCard.title} 
               className="absolute inset-0 w-full h-full object-cover"
               referrerPolicy="no-referrer"
