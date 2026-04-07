@@ -1,4 +1,4 @@
-# 靈魂訊息卡牌 (Spiritual Message Cards) 
+# 靈魂訊息卡牌 (Spiritual Message Cards)
 
 這是一個結合抽卡與 AI 解讀的靈性指引網站。
 
