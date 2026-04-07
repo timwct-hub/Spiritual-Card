@@ -33,7 +33,7 @@ ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用
     },
     body: JSON.stringify({
       // 使用 OpenRouter 官方支援的免費 Qwen 模型
-      model: "qwen/qwen-2.5-72b-instruct:free",
+      model: "qwen/qwen3.6-plus:free",
       messages: [
         { role: "user", content: prompt }
       ]
