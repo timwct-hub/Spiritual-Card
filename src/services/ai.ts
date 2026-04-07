@@ -35,7 +35,6 @@ const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
   },
   body: JSON.stringify({
     models: [
-      "qwen/qwen3.6-plus:free",
       "qwen/qwen2.5-72b-instruct:free",
       "meta-llama/llama-4-scout:free",
       "google/gemma-3-27b-it:free",
