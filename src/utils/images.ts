@@ -1,3 +1,3 @@
 export const getImageUrl = (imagePath: string): string => {
-  return imagePath;
+  return `/Spiritual-Card${imagePath}`;
 };
