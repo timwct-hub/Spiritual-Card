@@ -6,7 +6,7 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/Spiritual-Card/', // Must match the GitHub repository name exactly
+    base: '/', // Must match the GitHub repository name exactly
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.OPENROUTER_API_KEY': JSON.stringify(env.OPENROUTER_API_KEY),
