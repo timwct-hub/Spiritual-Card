@@ -23,27 +23,23 @@ ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用
 請直接輸出解讀內容與提問，不需要加上額外的開場白。
   `;
 
-const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-  method: "POST",
-  headers: {
-    "Authorization": `Bearer ${apiKey}`,
-    "Content-Type": "application/json",
-    "HTTP-Referer": typeof window !== "undefined"
-      ? window.location.href
-      : "https://timwct-hub.github.io/Spiritual-Card/",
-    "X-Title": "Spiritual Message Cards",
-  },
-  body: JSON.stringify({
-    models: [
-      "minimax/minimax-m2.5:free",
-      "openai/gpt-oss-120b:free",
-      "nvidia/nemotron-3-super-120b-a12b:free",
-    ],
-    messages: [
-      { role: "user", content: prompt }
-    ]
-  })
-});
+  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      "HTTP-Referer": typeof window !== "undefined"
+        ? window.location.href
+        : "https://timwct-hub.github.io/Spiritual-Card/",
+      "X-Title": "Spiritual Message Cards",
+    },
+    body: JSON.stringify({
+      model: "openrouter/free",
+      messages: [
+        { role: "user", content: prompt }
+      ]
+    })
+  });
 
 
   const data = await response.json().catch(() => ({}));
