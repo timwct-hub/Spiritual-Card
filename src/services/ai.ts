@@ -32,7 +32,7 @@ ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用
       "X-Title": "Spiritual Message Cards",
     },
     body: JSON.stringify({
-      model: "qwen/qwen-2.5-72b-instruct:free",
+      model: "qwen/qwen3.6-plus:free",
       messages: [
         { role: "user", content: prompt }
       ]
