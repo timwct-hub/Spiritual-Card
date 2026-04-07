@@ -16,7 +16,7 @@ export async function getSpiritualReading(
 
 ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用者沒有提供具體問題，請給予一般性的指引。'}
 
-請根據卡牌的訊息，為使用者的問題提供一段專屬的靈性解讀（約 150-200 字）。用太傻天書嘅世界觀
+請根據卡牌的訊息，為使用者的問題提供一段專屬的靈性解讀（約 150-200 字）。要讓她看完是會更有希望的
 解讀結束後，請提供 3 個引導使用者自我覺察的提問（請以「✧」作為項目符號開頭）。
 
 請不要說教、不要販賣焦慮、語氣要溫暖且具啟發性。
@@ -32,7 +32,7 @@ ${userQuestion ? `使用者心中的問題是：「${userQuestion}」` : '使用
       "X-Title": "Spiritual Message Cards",
     },
     body: JSON.stringify({
-      model: "qwen/qwen3.6-plus:free",
+      model: "qwen/qwen-2.5-72b-instruct:free",
       messages: [
         { role: "user", content: prompt }
       ]
